@@ -1,9 +1,6 @@
 @RiverBooks = http://localhost:5244
 
-GET {{RiverBooks}}/weatherforecast/
+GET {{RiverBooks}}/books/
 Accept: application/json
 
 ###
-
-GET {{RiverBooks}}/books/
-Accept: application/json
