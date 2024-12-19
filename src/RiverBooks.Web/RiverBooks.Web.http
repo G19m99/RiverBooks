@@ -4,3 +4,28 @@ GET {{RiverBooks}}/books/
 Accept: application/json
 
 ###
+GET {{RiverBooks}}/books/9568d213-73c3-442f-8843-57ab7819bb7a
+Accept: application/json
+
+###
+POST {{RiverBooks}}/books
+Accept: application/json
+Content-Type: application/json
+{
+  "title": "Modular Monolith",
+  "Author": "The A.S",
+  "price": 11.99
+}
+
+###
+DELETE {{RiverBooks}}/books/1b23ebac-9f38-4a77-8805-dcee6de2e4f5
+Accept: application/json
+
+###
+POST {{RiverBooks}}/books/1b23ebac-9f38-4a77-8805-dcee6de2e4f5/priceHistory
+Accept: application/json
+Content-Type: application/json
+{
+  "id": "9568d213-73c3-442f-8843-57ab7819bb7a",
+  "newPrice": 199.99
+}

@@ -7,13 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Web", "RiverBook
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Books", "RiverBooks.Books\RiverBooks.Books.csproj", "{A8E013CF-8FCA-4618-BA1C-9534E3D3FEF6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CEE054B-E539-4E07-BAD3-0BF89A81A860}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1204C0EA-65D8-41B8-B32C-B5AA3B4DE326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +26,8 @@ Global
 		{A8E013CF-8FCA-4618-BA1C-9534E3D3FEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8E013CF-8FCA-4618-BA1C-9534E3D3FEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8E013CF-8FCA-4618-BA1C-9534E3D3FEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
