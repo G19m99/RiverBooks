@@ -1,4 +1,5 @@
 using FastEndpoints;
+using FastEndpoints.Security;
 using RiverBooks.Books;
 using Serilog;
 
@@ -18,7 +19,12 @@ builder.Services.AddOpenApi();
 builder.Services.AddBooksServices(builder.Configuration, logger);
 builder.Services.AddUsersModuleServices(builder.Configuration, logger);
 
-builder.Services.AddFastEndpoints();
+string jwtSecret = builder.Configuration["Auth:JwtSecret"]!;
+
+builder.Services
+    .AddAuthenticationJwtBearer(s => s.SigningKey = jwtSecret)
+    .AddAuthorization()
+    .AddFastEndpoints();
 
 var app = builder.Build();
 
@@ -28,9 +34,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-
-app.UseFastEndpoints();
+app
+    .UseAuthentication()
+    .UseAuthorization()
+    .UseFastEndpoints();
 
 app.Run();
 

@@ -1,4 +1,4 @@
-@RiverBooks = http://localhost:5244
+@RiverBooks = https://localhost:7180
 
 GET {{RiverBooks}}/books/
 Accept: application/json
@@ -28,4 +28,24 @@ Content-Type: application/json
 {
   "id": "9568d213-73c3-442f-8843-57ab7819bb7a",
   "newPrice": -199.99
+}
+
+###
+POST {{RiverBooks}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com",
+  "password": "Test123!"
+}
+
+###
+POST {{RiverBooks}}/users/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com",
+  "password": "Test123!"
 }
