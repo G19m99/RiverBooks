@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace RiverBooks.Books.Data;
 
-public class BookDbContext(DbContextOptions options) : DbContext(options)
+public class BookDbContext(DbContextOptions<BookDbContext> options) : DbContext(options)
 {
     internal DbSet<Book> Books { get; set; }
 
