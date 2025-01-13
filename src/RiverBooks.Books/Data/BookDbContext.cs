@@ -1,15 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace RiverBooks.Books;
+namespace RiverBooks.Books.Data;
 
-public class BookDbContext : DbContext
+public class BookDbContext(DbContextOptions options) : DbContext(options)
 {
     internal DbSet<Book> Books { get; set; }
-    public BookDbContext(DbContextOptions options) : base(options)
-    {
-        
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

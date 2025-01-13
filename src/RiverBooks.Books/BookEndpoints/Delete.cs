@@ -1,7 +1,7 @@
 ﻿using FastEndpoints;
 
-namespace RiverBooks.Books;
-internal class DeleteBookendpoint(IBookeService bookeService) : Endpoint<DeleteBookRequest>
+namespace RiverBooks.Books.BookEndpoints;
+internal class Delete(IBookeService bookeService) : Endpoint<DeleteBookRequest>
 {
     private readonly IBookeService _bookeService = bookeService;
     public override void Configure()
@@ -18,4 +18,3 @@ internal class DeleteBookendpoint(IBookeService bookeService) : Endpoint<DeleteB
         await SendNoContentAsync(ct);
     }
 }
- 

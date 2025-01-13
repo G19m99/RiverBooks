@@ -22,3 +22,13 @@ app.UseHttpsRedirection();
 app.UseFastEndpoints();
 
 app.Run();
+
+//class is partial to support testing
+public partial class Program { }
+
+//Migartion instructions for reg and testing dbs
+
+//standard
+
+//testing
+//1: dotnet ef database update -- --enviroment Testing
