@@ -1,4 +1,5 @@
 @RiverBooks = https://localhost:7180
+@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzY5ODc1MTMsImlhdCI6MTczNjkwMTExMywiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM2OTAxMTEzfQ.1vh-UaKKwAXzYTpjPjXyV1N-ZOmmPq7w6lElcq0SXiw
 
 GET {{RiverBooks}}/books/
 Accept: application/json
