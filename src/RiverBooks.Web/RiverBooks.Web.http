@@ -1,5 +1,5 @@
 @RiverBooks = https://localhost:7180
-@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzY5ODc1MTMsImlhdCI6MTczNjkwMTExMywiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM2OTAxMTEzfQ.1vh-UaKKwAXzYTpjPjXyV1N-ZOmmPq7w6lElcq0SXiw
+@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzcwMDIwMzksImlhdCI6MTczNjkxNTYzOSwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM2OTE1NjM5fQ.9OLLk7jV4-DVx1qHJO6iUIAZXELZnAY_9F2IQ70h1_c
 
 GET {{RiverBooks}}/books/
 Accept: application/json
@@ -49,4 +49,20 @@ Content-Type: application/json
 {
   "email": "test1@gmail.com",
   "password": "Test123!"
+}
+
+###
+GET {{RiverBooks}}/cart
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{RiverBooks}}/cart
+Accept: text/plain
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "bookId": "9f5f0fc3-c0d4-4608-9bea-1d49cd969a5b",
+  "quantity": 1
 }

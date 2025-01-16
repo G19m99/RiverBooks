@@ -1,15 +1,14 @@
-﻿
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RiverBooks.Users;
+using RiverBooks.Users.Data;
 using Serilog;
 using System.Reflection;
 
 public static class UsersModuleExtensions
 {
-    public static IServiceCollection AddUsersModuleServices(this IServiceCollection services, ConfigurationManager config, ILogger logger)
+    public static IServiceCollection AddUsersModuleServices(this IServiceCollection services, ConfigurationManager config, ILogger logger, List<Assembly> mediatRAssemblies)
     {
         string connStr = config.GetConnectionString("UsersConnectionString")!;
 
@@ -17,29 +16,14 @@ public static class UsersModuleExtensions
         services.AddIdentityCore<ApplicationUser>()
             .AddEntityFrameworkStores<UsersDbContext>();
 
+        //user services
+        services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+
+        //if MediatoR is needed in this module register self to list of MediatoR assemblies
+        mediatRAssemblies.Add(typeof(UsersModuleExtensions).Assembly);
+
         logger.Information("{Module} module services registered", "Users");
 
         return services;
     }
-}
-
-internal class UsersDbContext(DbContextOptions<UsersDbContext> options) : IdentityDbContext(options)
-{
-    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        builder.HasDefaultSchema("Users");
-
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        base.OnModelCreating(builder);
-    }
-
-    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-    {
-        configurationBuilder.Properties<decimal>().HavePrecision(18, 6);
-    }
-}
-
-internal class ApplicationUser : IdentityUser
-{
 }

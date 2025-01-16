@@ -2,6 +2,7 @@ using FastEndpoints;
 using FastEndpoints.Security;
 using RiverBooks.Books;
 using Serilog;
+using System.Reflection;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -16,8 +17,14 @@ builder.Host.UseSerilog((_, config) =>
 builder.Services.AddOpenApi();
 
 //Module services
-builder.Services.AddBooksServices(builder.Configuration, logger);
-builder.Services.AddUsersModuleServices(builder.Configuration, logger);
+List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
+builder.Services.AddBooksServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
+
+
+//Set up MediatoR - with ability foreach module to select whether it wants to opt-in
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
+
 
 string jwtSecret = builder.Configuration["Auth:JwtSecret"]!;
 
