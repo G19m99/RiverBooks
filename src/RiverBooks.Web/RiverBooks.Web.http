@@ -28,7 +28,7 @@ Accept: application/json
 Content-Type: application/json
 {
   "id": "9568d213-73c3-442f-8843-57ab7819bb7a",
-  "newPrice": -199.99
+  "newPrice": 1.99
 }
 
 ###
@@ -63,6 +63,6 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "bookId": "9f5f0fc3-c0d4-4608-9bea-1d49cd969a5b",
+  "bookId": "8105a275-4590-45c6-bffb-e2425aead681",
   "quantity": 1
 }
