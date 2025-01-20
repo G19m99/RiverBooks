@@ -1,5 +1,5 @@
 @RiverBooks = https://localhost:7180
-@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzcwMDIwMzksImlhdCI6MTczNjkxNTYzOSwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM2OTE1NjM5fQ.9OLLk7jV4-DVx1qHJO6iUIAZXELZnAY_9F2IQ70h1_c
+@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mzc0MjU5OTQsImlhdCI6MTczNzMzOTU5NCwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM3MzM5NTk0fQ.hkTpmvBkmOJ9PjtqhIowcEjln9M3XDHpegXFIdP9XVo
 
 GET {{RiverBooks}}/books/
 Accept: application/json
@@ -66,3 +66,22 @@ Content-Type: application/json
   "bookId": "8105a275-4590-45c6-bffb-e2425aead681",
   "quantity": 1
 }
+
+###
+GET {{RiverBooks}}/orders
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{RiverBooks}}/cart/checkout
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "shippingAddressId": "8105a275-4590-45c6-bffb-e2425aead681",
+  "billingAddressId": "8105a275-4590-45c6-bffb-e2425aead681"
+}
+
+###

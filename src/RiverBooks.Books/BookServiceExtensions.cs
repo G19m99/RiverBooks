@@ -10,7 +10,7 @@ namespace RiverBooks.Books;
 
 public static class BookServiceExtensions
 {
-    public static IServiceCollection AddBooksServices(this IServiceCollection services, ConfigurationManager config, ILogger logger, List<Assembly> mediatRAssemblies)
+    public static IServiceCollection AddBooksModuleServices(this IServiceCollection services, ConfigurationManager config, ILogger logger, List<Assembly> mediatRAssemblies)
     {
         string? connectionString = config.GetConnectionString("BooksConnectionString");
         Console.WriteLine("Connection" + connectionString);

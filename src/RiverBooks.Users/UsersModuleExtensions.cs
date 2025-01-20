@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RiverBooks.Users;
 using RiverBooks.Users.Data;
 using Serilog;
 using System.Reflection;
+
+namespace RiverBooks.Users;
 
 public static class UsersModuleExtensions
 {

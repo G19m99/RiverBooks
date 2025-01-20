@@ -1,6 +1,8 @@
 using FastEndpoints;
 using FastEndpoints.Security;
 using RiverBooks.Books;
+using RiverBooks.Users;
+using RiverBooks.OrderProcessing;
 using Serilog;
 using System.Reflection;
 
@@ -18,8 +20,9 @@ builder.Services.AddOpenApi();
 
 //Module services
 List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
-builder.Services.AddBooksServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAssemblies);
 builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddOrderProcessingModuleServices(builder.Configuration, logger, mediatRAssemblies);
 
 
 //Set up MediatoR - with ability foreach module to select whether it wants to opt-in
