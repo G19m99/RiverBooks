@@ -2,7 +2,7 @@
 using MediatR;
 using RiverBooks.Users.CartItemsEndpoints;
 
-namespace RiverBooks.Users.UseCases.ListItem;
+namespace RiverBooks.Users.UseCases.Cart.ListItem;
 
 internal class ListCartItemsQueryHandler(IApplicationUserRepository userRepository) : IRequestHandler<ListCartItemsQuery, Result<List<CartItemDto>>>
 {

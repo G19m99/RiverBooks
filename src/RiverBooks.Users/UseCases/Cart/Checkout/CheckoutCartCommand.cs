@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using MediatR;
 
-namespace RiverBooks.Users.UseCases.Checkout;
+namespace RiverBooks.Users.UseCases.Cart.Checkout;
 
 public record CheckoutCartCommand(
     string Email,

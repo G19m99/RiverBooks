@@ -2,9 +2,9 @@
 using MediatR;
 using RiverBooks.OrderProcessing.Contracts;
 
-namespace RiverBooks.Users.UseCases.Checkout;
+namespace RiverBooks.Users.UseCases.Cart.Checkout;
 
-internal class CheckoutCartHandler(IApplicationUserRepository userRepository, IMediator mediator) : IRequestHandler<CheckoutCartCommand ,Result<Guid>>
+internal class CheckoutCartHandler(IApplicationUserRepository userRepository, IMediator mediator) : IRequestHandler<CheckoutCartCommand, Result<Guid>>
 {
     private readonly IApplicationUserRepository _userRepository = userRepository;
     private readonly IMediator _mediator = mediator;
@@ -34,7 +34,7 @@ internal class CheckoutCartHandler(IApplicationUserRepository userRepository, IM
 
         var result = await _mediator.Send(createOrderCmd, ct);
 
-        if(!result.IsSuccess)
+        if (!result.IsSuccess)
         {
             //return the unsuccesful order
             return result.Map(o => o.OrderId);

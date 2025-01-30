@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
 using MediatR;
-using RiverBooks.Users.UseCases.ListItem;
+using RiverBooks.Users.UseCases.Cart.ListItem;
 using System.Security.Claims;
 
 namespace RiverBooks.Users.CartItemsEndpoints;
