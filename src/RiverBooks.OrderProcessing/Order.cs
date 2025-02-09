@@ -2,7 +2,7 @@
 
 public class Order
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public Guid UserId { get; set; }
     public Address ShippingAddress { get; set; } = default!;
     public Address BillingAddress { get; set; } = default!;

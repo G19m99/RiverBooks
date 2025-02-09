@@ -1,11 +1,11 @@
 @RiverBooks = https://localhost:7180
-@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mzc0MjU5OTQsImlhdCI6MTczNzMzOTU5NCwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM3MzM5NTk0fQ.hkTpmvBkmOJ9PjtqhIowcEjln9M3XDHpegXFIdP9XVo
+@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzkyMTQ4NjcsImlhdCI6MTczOTEyODQ2NywiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM5MTI4NDY3fQ.EDSfZ9y7BEJAJoSdMhy5cNWGPXbxzC_YD0xkXLdgaXc
 
 GET {{RiverBooks}}/books/
 Accept: application/json
 
 ###
-GET {{RiverBooks}}/books/32f56978-f320-4ad0-aea8-41a0e02d1d11
+GET {{RiverBooks}}/books/9568d213-73c3-442f-8843-57ab7819bb7a
 Accept: application/json
 
 ###
@@ -13,17 +13,17 @@ POST {{RiverBooks}}/books
 Accept: application/json
 Content-Type: application/json
 {
-  "title": "",
-  "Author": "Gershy Menzer 2",
+  "title": "New Book",
+  "Author": "Gershy Menzer",
   "price": 14.00
 }
 
 ###
-DELETE {{RiverBooks}}/books/1b23ebac-9f38-4a77-8805-dcee6de2e4f5
+DELETE {{RiverBooks}}/books/9568d213-73c3-442f-8843-57ab7819bb7a
 Accept: application/json
 
 ###
-POST {{RiverBooks}}/books/8105a275-4590-45c6-bffb-e2425aead681/priceHistory
+POST {{RiverBooks}}/books/44b2e7bd-60a0-4b28-9dd4-8a761f58aa8a/priceHistory
 Accept: application/json
 Content-Type: application/json
 {
@@ -63,7 +63,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "bookId": "8105a275-4590-45c6-bffb-e2425aead681",
+  "bookId": "bbfc3a2c-890d-4ce2-b3a4-d4553fa8803b",
   "quantity": 1
 }
 
@@ -80,8 +80,31 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "shippingAddressId": "8105a275-4590-45c6-bffb-e2425aead681",
-  "billingAddressId": "8105a275-4590-45c6-bffb-e2425aead681"
+  "shippingAddressId": "25b64bff-bee8-4e82-9be1-453ddc8a7aaf",
+  "billingAddressId": "25b64bff-bee8-4e82-9be1-453ddc8a7aaf"
 }
 
 ###
+
+# List Addresses
+
+GET {{RiverBooks}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# Post a new address
+POST {{RiverBooks}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "street1": "3 Main st",
+  "street2": "number 1",
+  "city": "Anytown",
+  "state": "NJ",
+  "postalCode": "08701",
+  "country": "USA"
+}

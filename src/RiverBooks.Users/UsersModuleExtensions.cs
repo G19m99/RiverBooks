@@ -20,6 +20,9 @@ public static class UsersModuleExtensions
         //user services
         services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 
+        //MediatoR domain event dispatcher
+        services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();
+
         //if MediatoR is needed in this module register self to list of MediatoR assemblies
         mediatRAssemblies.Add(typeof(UsersModuleExtensions).Assembly);
 

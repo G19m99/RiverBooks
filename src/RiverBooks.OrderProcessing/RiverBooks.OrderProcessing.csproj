@@ -16,10 +16,12 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.8.24" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\RiverBooks.OrderProcessing.Contracts\RiverBooks.OrderProcessing.Contracts.csproj" />
+	  <ProjectReference Include="..\RiverBooks.Users.Contracts\RiverBooks.Users.Contracts.csproj" />
 	</ItemGroup>
 
 </Project>

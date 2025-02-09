@@ -7,7 +7,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
     public void Configure(EntityTypeBuilder<Order> builder)
     {
-        //for now we differ from the course and accept database gnerated id's
+        builder.Property(x => x.Id).ValueGeneratedNever();
 
         builder.ComplexProperty(o => o.ShippingAddress, address =>
         {
