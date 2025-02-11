@@ -19,6 +19,7 @@ public static class UsersModuleExtensions
 
         //user services
         services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+        services.AddScoped<IReadOnlyUserStreetAddressRepository, UserStreetAddressRepositroy>();
 
         //MediatoR domain event dispatcher
         services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();

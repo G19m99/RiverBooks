@@ -1,5 +1,5 @@
 @RiverBooks = https://localhost:7180
-@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzkyMTQ4NjcsImlhdCI6MTczOTEyODQ2NywiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM5MTI4NDY3fQ.EDSfZ9y7BEJAJoSdMhy5cNWGPXbxzC_YD0xkXLdgaXc
+@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzkzMjMyMjksImlhdCI6MTczOTIzNjgyOSwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM5MjM2ODI5fQ.OPPhsAxq8BDg26FonPeM_PLPyU3F2pMhX-sXotZcQUM
 
 GET {{RiverBooks}}/books/
 Accept: application/json
@@ -80,8 +80,8 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "shippingAddressId": "25b64bff-bee8-4e82-9be1-453ddc8a7aaf",
-  "billingAddressId": "25b64bff-bee8-4e82-9be1-453ddc8a7aaf"
+  "shippingAddressId": "4cc1250f-451d-40da-8c01-3b7389a1ca6a",
+  "billingAddressId": "4cc1250f-451d-40da-8c01-3b7389a1ca6a"
 }
 
 ###
@@ -108,3 +108,14 @@ Content-Type: application/json
   "postalCode": "08701",
   "country": "USA"
 }
+
+###
+
+# Flush redis - testing
+POST {{RiverBooks}}/flushredis
+Accept: application/json
+Content-Type: application/json
+
+{}
+
+###

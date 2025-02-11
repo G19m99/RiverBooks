@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace RiverBooks.OrderProcessing;
+namespace RiverBooks.OrderProcessing.Data;
 
 public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
