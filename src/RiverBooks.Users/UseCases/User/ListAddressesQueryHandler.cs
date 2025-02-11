@@ -1,5 +1,7 @@
 ﻿using Ardalis.Result;
 using MediatR;
+using RiverBooks.Users.Domain;
+using RiverBooks.Users.Interfaces;
 using RiverBooks.Users.UsersEndpoints;
 
 namespace RiverBooks.Users.UseCases.User;

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RiverBooks.Users.Data;
+using RiverBooks.Users.Domain;
+using RiverBooks.Users.Infrastructure.Data;
+using RiverBooks.Users.Interfaces;
 using Serilog;
 using System.Reflection;
 
@@ -20,9 +22,6 @@ public static class UsersModuleExtensions
         //user services
         services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
         services.AddScoped<IReadOnlyUserStreetAddressRepository, UserStreetAddressRepositroy>();
-
-        //MediatoR domain event dispatcher
-        services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();
 
         //if MediatoR is needed in this module register self to list of MediatoR assemblies
         mediatRAssemblies.Add(typeof(UsersModuleExtensions).Assembly);

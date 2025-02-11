@@ -1,5 +1,6 @@
 ﻿using FastEndpoints;
 using Microsoft.AspNetCore.Identity;
+using RiverBooks.Users.Domain;
 
 namespace RiverBooks.Users.UsersEndpoints;
 internal class Create : Endpoint<CreateUserRequest>
