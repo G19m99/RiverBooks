@@ -1,14 +1,15 @@
 @RiverBooks = https://localhost:7180
-@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzkzMjMyMjksImlhdCI6MTczOTIzNjgyOSwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzM5MjM2ODI5fQ.OPPhsAxq8BDg26FonPeM_PLPyU3F2pMhX-sXotZcQUM
+@token =eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTkyODM3OTksImlhdCI6MTc1OTE5NzM5OSwiRW1haWxBZGRyZXNzIjoidGVzdDFAZ21haWwuY29tIiwibmJmIjoxNzU5MTk3Mzk5fQ.Jo5G1pBjzNvi8Q_I4k2chs-VRoVFK29_adEchZ2dY20
 
+### List books
 GET {{RiverBooks}}/books/
 Accept: application/json
 
-###
-GET {{RiverBooks}}/books/9568d213-73c3-442f-8843-57ab7819bb7a
+### Get book by id
+GET {{RiverBooks}}/books/8105a275-4590-45c6-bffb-e2425aead681
 Accept: application/json
 
-###
+### Create new book
 POST {{RiverBooks}}/books
 Accept: application/json
 Content-Type: application/json
@@ -18,11 +19,11 @@ Content-Type: application/json
   "price": 14.00
 }
 
-###
+### delete book
 DELETE {{RiverBooks}}/books/9568d213-73c3-442f-8843-57ab7819bb7a
 Accept: application/json
 
-###
+### Update price
 POST {{RiverBooks}}/books/44b2e7bd-60a0-4b28-9dd4-8a761f58aa8a/priceHistory
 Accept: application/json
 Content-Type: application/json
@@ -31,7 +32,7 @@ Content-Type: application/json
   "newPrice": 1.99
 }
 
-###
+### Create User
 POST {{RiverBooks}}/users
 Accept: application/json
 Content-Type: application/json
@@ -51,58 +52,56 @@ Content-Type: application/json
   "password": "Test123!"
 }
 
-###
+### Get users cart
 GET {{RiverBooks}}/cart
 Accept: application/json
 Authorization: Bearer {{token}}
 
-###
+### Add to users cart
 POST {{RiverBooks}}/cart
 Accept: text/plain
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "bookId": "bbfc3a2c-890d-4ce2-b3a4-d4553fa8803b",
-  "quantity": 0
+  "bookId": "32f56978-f320-4ad0-aea8-41a0e02d1d11",
+  "quantity": 2
 }
 
-###
+### Get users orders
 GET {{RiverBooks}}/orders
 Accept: application/json
 Authorization: Bearer {{token}}
 
-###
-
+### Checkout 
 POST {{RiverBooks}}/cart/checkout
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "shippingAddressId": "4cc1250f-451d-40da-8c01-3b7389a1ca6a",
-  "billingAddressId": "4cc1250f-451d-40da-8c01-3b7389a1ca6a"
+  "shippingAddressId": "114cad28-d47e-4211-a29f-e77585c84bff",
+  "billingAddressId": "7555cc3b-2785-41ab-9955-c897ca567ddb"
 }
 
 ###
 
-# List Addresses
-
+# List users Addresses
 GET {{RiverBooks}}/users/addresses
 Accept: application/json
 Authorization: Bearer {{token}}
 
 ###
 
-# Post a new address
+# Create a new address
 POST {{RiverBooks}}/users/addresses
 Accept: application/json
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "street1": "3 Main st",
-  "street2": "number 1",
+  "street1": "123 Anywhere ln",
+  "street2": "",
   "city": "Anytown",
   "state": "NJ",
   "postalCode": "08701",

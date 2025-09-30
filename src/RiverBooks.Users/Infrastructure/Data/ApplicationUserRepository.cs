@@ -12,7 +12,7 @@ internal class ApplicationUserRepository(UsersDbContext context) : IApplicationU
     {
         return _context.ApplicationUsers
             .Include(user => user.Addresses)
-            .SingleAsync(user => user.Email == email);
+            .SingleAsync(user => user.Email == email); 
     }
 
     public Task<ApplicationUser> GetUserWithCartByEmailAsync(string email)

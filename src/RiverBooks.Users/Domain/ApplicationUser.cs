@@ -1,7 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Identity;
 using RiverBooks.SharedKernel;
-using RiverBooks.Users.Interfaces;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiverBooks.Users.Domain;

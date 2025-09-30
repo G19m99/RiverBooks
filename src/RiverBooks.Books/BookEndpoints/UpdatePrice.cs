@@ -9,7 +9,6 @@ internal class UpdatePrice(IBookeService bookService) : Endpoint<UpdatePriceRequ
     public override void Configure()
     {
         Post("/books/{Id}/priceHistory");
-        AllowAnonymous();
     }
 
     public override async Task HandleAsync(UpdatePriceRequest req, CancellationToken ct)

@@ -3,13 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using RiverBooks.Users.Domain;
 
 namespace RiverBooks.Users.UsersEndpoints;
-internal class Create : Endpoint<CreateUserRequest>
+
+internal class CreateUser(UserManager<ApplicationUser> userManager) : Endpoint<CreateUserRequest>
 {
-    private readonly UserManager<ApplicationUser> _userManager;
-    public Create(UserManager<ApplicationUser> userManager)
-    {
-        _userManager = userManager;
-    }
+    private readonly UserManager<ApplicationUser> _userManager = userManager;
 
     public override void Configure()
     {
@@ -24,7 +21,7 @@ internal class Create : Endpoint<CreateUserRequest>
             Email = req.Email,
             UserName = req.Email.Trim(),
         };
-        var res = await _userManager.CreateAsync(newUser, req.Password);
+        await _userManager.CreateAsync(newUser, req.Password);
 
         await SendOkAsync(newUser, ct);
     }

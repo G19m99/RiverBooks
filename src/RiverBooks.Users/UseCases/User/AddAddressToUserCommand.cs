@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using MediatR;
-using Serilog;
 
 namespace RiverBooks.Users.UseCases.User;
 

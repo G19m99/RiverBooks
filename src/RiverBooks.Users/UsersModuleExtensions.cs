@@ -21,7 +21,7 @@ public static class UsersModuleExtensions
 
         //user services
         services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
-        services.AddScoped<IReadOnlyUserStreetAddressRepository, UserStreetAddressRepositroy>();
+        services.AddScoped<IReadOnlyUserStreetAddressRepository, UserStreetAddressRepository>();
 
         //if MediatoR is needed in this module register self to list of MediatoR assemblies
         mediatRAssemblies.Add(typeof(UsersModuleExtensions).Assembly);
